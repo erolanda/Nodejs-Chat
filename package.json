@@ -1,0 +1,24 @@
+{
+  "name": "tareavotacion",
+  "version": "1.0.0",
+  "description": "tareavotacion",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel Landa",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "jade": "^1.11.0",
+    "mongoose": "^4.2.4",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^1.3.7"
+  }
+}

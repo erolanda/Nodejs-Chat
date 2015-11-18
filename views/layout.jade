@@ -1,0 +1,56 @@
+doctype
+html
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', integrity='sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==', crossorigin='anonymous')
+    link(href='stylesheets/chat.css', rel='stylesheet')
+  body(onload="myFunction()")
+    .container
+      #myModal.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h4
+                span.glyphicon.glyphicon-question-sign
+                | Hacer pregunta
+            .modal-body
+              form#surveyForm.form-horizontal
+                .form-group
+                  label.col-xs-3.control-label Pregunta
+                  .col-xs-5
+                    input(id='pregunta', name='pregunta', data-validation='length', data-validation-length='min10')
+                .form-group
+                  label.col-xs-3.control-label Respuestas
+                  .col-xs-5
+                    input(type='text', name='respuestas[]', data-validation='length', data-validation-length='min2', class='respuestasC')
+                  .col-xs-4
+                    button.btn.btn-default.addButton(type='button')
+                      span.glyphicon.glyphicon-plus
+                // The option field template containing an option field and a Remove button
+                #optionTemplate.form-group.hide
+                  .col-xs-offset-3.col-xs-5
+                    input(type='text', name='respuestas[]', data-validation='length', data-validation-length='min2', class='respuestasC')
+                  .col-xs-4
+                    button.btn.btn-default.removeButton(type='button')
+                      span.glyphicon.glyphicon-minus
+                script.
+                  $.validate();
+                .form-group
+                  .col-xs-5.col-xs-offset-3
+                    button.btn.btn-default.sendQuestion(type='button', onclick="submitForm()") Enviar pregunta
+            .modal-footer
+              button.btn.btn-danger.btn-default.pull-left(type='submit', data-dismiss='modal')
+                span.glyphicon.glyphicon-remove
+                |  Cancel
+      block content
+    block footer
+      script(src='/socket.io/socket.io.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', integrity='sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==', crossorigin='anonymous')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.8/jquery.form-validator.min.js')
+      script.
+        var user = !{JSON.stringify(user)};
+      script(type='text/javascript' src='/javascripts/socketFunctions.js')

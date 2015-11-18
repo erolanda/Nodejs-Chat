@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .row
+    #title.well
+      h2 Bienvenido al chat #{user}
+    .col-md-6#containerMessages
+      .panel.panel-primary.head
+        .panel-heading
+          p Mensajes de la sala
+      #chatMsgs
+    .col-md-3#containerQuestions
+      .panel.panel-primary.head
+        .panel-heading
+          p Preguntas
+      #questions
+    .col-md-3#containerUsers
+      .panel.panel-primary.head
+        .panel-heading
+          p Usuarios
+      #chatUsers
+    .col-md-7#containerSendMessages
+      input.message.col-md-12.form-control(type="text",placeholder="Escribe un mensaje")
+    .col-md-2#containerSendMessages
+      button.btn.btn-large.btn-block.btn-primary.sendMsg() Enviar mensaje
+    .col-md-2#containerMakeQuestion
+      button.btn.btn-large.btn-block.btn-primary.makeQuestion() Hacer pregunta
